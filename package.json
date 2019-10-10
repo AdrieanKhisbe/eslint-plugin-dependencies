@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-dependencies",
+  "name": "@-k/eslint-plugin-dependencies",
   "version": "2.4.0",
   "description": "require/import dependency validation",
   "keywords": [
@@ -15,7 +15,7 @@
     "*.js"
   ],
   "author": "Andres Suarez <zertosh@gmail.com>",
-  "repository": "zertosh/eslint-plugin-dependencies",
+  "repository": "AdrieanKhisbe/eslint-plugin-dependencies",
   "scripts": {
     "test": "find test -name '*-test.js' -print0 | xargs -n 1 -0 node"
   },

@@ -1,6 +1,11 @@
-# eslint-plugin-dependencies
+# @k/eslint-plugin-dependencies
 
-[![Build Status](https://travis-ci.org/zertosh/eslint-plugin-dependencies.svg?branch=master)](https://travis-ci.org/zertosh/eslint-plugin-dependencies)
+[![Build Status](https://travis-ci.org/AdrieanKhisbe/eslint-plugin-dependencies.svg?branch=master)](https://travis-ci.org/AdrieanKhisbe/eslint-plugin-dependencies)
+
+:warning: This is a _(temporary)_ fork :warning:
+Aim is to have a release that is comptabible with eslint 6 thanks to https://github.com/zertosh/eslint-plugin-dependencies/pull/21/files
+
+
 
 ## Usage
 
