@@ -5,8 +5,9 @@ var path = require('path');
 
 var RuleTester = require('eslint').RuleTester;
 
+var rule = require('../src/rules/no-cycles');
 var ruleTester = new RuleTester();
-ruleTester.run('no-cycles', require.resolve('../no-cycles'), {
+ruleTester.run('no-cycles', rule, {
   valid: [
     {
       code: 'console.log();',

@@ -5,6 +5,8 @@
 :warning: This is a _(temporary)_ fork :warning:
 Aim is to have a release that is comptabible with eslint 6 thanks to https://github.com/zertosh/eslint-plugin-dependencies/pull/21/files
 
+>> ! TODO GIVE UP (and configure the import)
+Post a message with rules equivalent!!
 
 
 ## Usage

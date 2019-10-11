@@ -2,29 +2,36 @@
 
 var fs = require('fs');
 var path = require('path');
-var helpers = require('./_helpers');
+var helpers = require('../helpers');
 
 /**
  * A reference to the eslint module is needed to be able to require the same
  * parser that used to parse the file being linted, as well as to use eslint's
  * own traverser.
  */
-
+// ! FIXME: check if cannot be done another way now
+// ? /..\/..\/\/node_modules\/eslint\/lib\/[^\/]+\.js$/
+/*
 var eslintModule = (function() {
   var parent = module.parent;
   var eslintLibRe = new RegExp(
+    //'..' + path.sep + '..' + 
     '\\' + path.sep + 'node_modules' +
     '\\' + path.sep + 'eslint' +
     '\\' + path.sep + 'lib' +
     '\\' + path.sep + '[^\\' + path.sep + ']+\\.js$'
   );
+  console.log(eslintLibRe)
   do {
+    console.log(parent.filename)
     if (eslintLibRe.test(parent.filename)) {
       return parent;
     }
   } while ((parent = parent.parent));
   throw new Error('Could not find eslint');
 })();
+// ! OVERRIDE */
+var eslintModule = require.('eslint')
 
 function getTraverser() {
   var traverser;
@@ -93,6 +100,8 @@ function relativizeTrace(trace, basedir) {
 }
 
 var _depsCache = helpers.oneTickCache();
+
+// !FIXME
 function getDeps(filename, src, ast, context, options) {
   var depsCache = _depsCache();
   if (depsCache[filename]) return depsCache[filename];
@@ -215,6 +224,7 @@ module.exports = function(context) {
     'Program:exit': function(node) {
       // since this ast has already been built, and traversing is cheap,
       // run it through references.deps so it's cached for future runs.
+      // FIXME: here
       getDeps(target, context.getSourceCode().text, node, context, options);
     },
   };

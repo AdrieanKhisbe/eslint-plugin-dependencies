@@ -5,7 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var resolve = require('resolve');
 
-var helpers = require('./_helpers');
+var helpers = require('../helpers');
 
 var nodeExts = /\.(js|json|node)$/;
 

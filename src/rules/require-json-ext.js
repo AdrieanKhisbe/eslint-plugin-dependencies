@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var helpers = require('./_helpers');
+var helpers = require('../helpers');
 var jsonExtRe = /\.json$/;
 
 module.exports = function(context) {

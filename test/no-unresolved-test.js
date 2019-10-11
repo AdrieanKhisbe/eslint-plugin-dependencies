@@ -1,9 +1,12 @@
 'use strict';
 
 var RuleTester = require('eslint').RuleTester;
-
+var rule = require('../src/rules/no-unresolved');
 var ruleTester = new RuleTester();
-ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
+
+var parser = require.resolve('babel-eslint');
+
+ruleTester.run('no-unresolved', rule, {
   valid: [
     {
       filename: __filename,
@@ -62,32 +65,32 @@ ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'import "./resolve/foo"',
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'import bar from "./resolve/foo"',
     },
     {
       filename: __filename,
-      parser: 'babel-eslint',
+      parser: parser,
       code: 'import type bar from "./resolve/foo"',
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'export * from "./resolve/foo"',
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'export {bar} from "./resolve/foo"',
     },
     {
       filename: __filename,
-      parser: 'babel-eslint',
+      parser: parser,
       code: 'export type {bar} from "./resolve/foo"',
     },
   ],
@@ -161,7 +164,7 @@ ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'import "./resolve/qux"',
       errors: [
         {
@@ -172,7 +175,7 @@ ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'import qux from "./resolve/qux"',
       errors: [
         {
@@ -183,7 +186,7 @@ ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
     },
     {
       filename: __filename,
-      parser: 'babel-eslint',
+      parser: parser,
       code: 'import type qux from "./resolve/qux"',
       errors: [
         {
@@ -194,7 +197,7 @@ ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'export {qux} from "./resolve/qux"',
       errors: [
         {
@@ -205,7 +208,7 @@ ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
     },
     {
       filename: __filename,
-      parserOptions: {sourceType: 'module'},
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
       code: 'export * from "./resolve/qux"',
       errors: [
         {
@@ -216,7 +219,7 @@ ruleTester.run('no-unresolved', require.resolve('../no-unresolved'), {
     },
     {
       filename: __filename,
-      parser: 'babel-eslint',
+      parser: parser,
       code: 'export type {qux} from "./resolve/qux"',
       errors: [
         {

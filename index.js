@@ -2,9 +2,9 @@
 
 module.exports = {
   rules: {
-    'case-sensitive': require('./case-sensitive'),
-    'no-cycles': require('./no-cycles'),
-    'no-unresolved': require('./no-unresolved'),
+    'case-sensitive': require('./src/rules/case-sensitive'),
+    'no-cycles': require('./src/rules/no-cycles'),
+    'no-unresolved': require('./src/rules/no-unresolved'),
     'require-json-ext': require('./require-json-ext'),
   },
   rulesConfig: {
